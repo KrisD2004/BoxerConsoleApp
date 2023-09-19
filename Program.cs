@@ -21,14 +21,14 @@ namespace ReviewWeekApp
                     // Read the JSON content and deserialize it into a list of Boxer objects
                     List<Boxer> boxers = ReadBoxersFromJson(jsonFilePath);
 
-                    // Ensure there are at least two boxers available
+                    // making sure there are at least two boxers available
                     if (boxers.Count < 2)
                     {
                         Console.WriteLine("There are not enough boxers for a match.");
                         return;
                     }
 
-                    // Let the user choose two boxers for the match
+                    // Letting  the user choose two boxers for the match
                     Boxer boxer1 = SelectBoxer(boxers);
                     Boxer boxer2 = SelectBoxer(boxers);
 
@@ -89,6 +89,7 @@ namespace ReviewWeekApp
             Console.WriteLine($"Boxer 1: {boxer1.Name} (KO Rate: {boxer1.KoRate})");
             Console.WriteLine($"Boxer 2: {boxer2.Name} (KO Rate: {boxer2.KoRate})");
 
+            //win logic 
             if (koRate1 > koRate2)
             {
                 Console.WriteLine($"{boxer1.Name} wins!");
@@ -104,6 +105,7 @@ namespace ReviewWeekApp
         }
     }
 
+    //class properties for the boxers
     public class Boxer
     {
         [JsonProperty("name")]
